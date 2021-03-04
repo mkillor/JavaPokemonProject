@@ -1,1 +1,1 @@
-Person{name='adf', age=35, aPokemon=Pokemon{name='Squirtle', aType=WATER, health=100, fireResistance=-0.5, waterResistance=0.0, grassResistance=0.5}}
+Person{name='M', age=1, aPokemon=Pokemon{name='Squirtle', aType=WATER, health=100, fireResistance=-0.5, waterResistance=0.0, grassResistance=0.5}}
