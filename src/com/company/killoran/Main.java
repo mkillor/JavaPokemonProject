@@ -14,7 +14,13 @@ class Main {
         //2. Start New game
 
         createdPokemon();//create a massive pokemonlist stored in arrayList and returned. Use method call and .get to retrieve individual pokemon.
-        Person playerInformaion = getPlayerInfo(); //retrieve player info
+        Person playerInformation = getPlayerInfo(); //retrieve player info including 1st pokemon
+        //create enemy
+        Enemy boss1 = new Enemy("Trainer K", createdPokemon().get(3));
+        System.out.println(boss1);
+
+
+
 
 
         /*create in game menu
@@ -24,7 +30,11 @@ class Main {
         * 4. Select single pokemon for next battle
         * 5. Save and Exit
         * */
-        exitGameAndSaveData(playerInformaion);//menu item for quitting and saving info to text file.
+
+
+
+
+        exitGameAndSaveData(playerInformation);//menu item for quitting and saving info to text file.
 
 
     }
@@ -34,13 +44,15 @@ class Main {
     public static ArrayList<Pokemon> createdPokemon()  {
 
         ArrayList<Pokemon> pokemonList = new ArrayList<>();
-        Pokemon pokemon1 = new Pokemon("Squirtle",Type.WATER);
-        Pokemon pokemon2 = new Pokemon("Charmander",Type.FIRE);
-        Pokemon pokemon3 = new Pokemon("Bulb",Type.GRASS);
+        Pokemon Squirtle = new Pokemon("Squirtle",Type.WATER,100);
+        Pokemon Charmander = new Pokemon("Charmander",Type.FIRE,100);
+        Pokemon Bulbasaur = new Pokemon("Bulbasaur",Type.GRASS,100);
+        Pokemon EvilBasic = new Pokemon("EvilBasic", Type.BASIC,35);
 
-        pokemonList.add(pokemon1);
-        pokemonList.add(pokemon2);
-        pokemonList.add(pokemon3);
+        pokemonList.add(Squirtle);
+        pokemonList.add(Charmander);
+        pokemonList.add(Bulbasaur);
+        pokemonList.add(EvilBasic);//enemy pokemon for battle
 
         return pokemonList;
     }
@@ -53,7 +65,7 @@ class Main {
         System.out.println("Please input your age: ");
         int age = input.nextInt();
         input.nextLine();
-        System.out.println("Please select your pokemon: Squirtle, Charmander, or Bulb");
+        System.out.println("Please select your pokemon: Squirtle, Charmander, or Bulbasaur");
         String selection = input.nextLine();
         if(selection.equals("Squirtle")) {
             person1 = new Person(name,age, createdPokemon().get(0));
@@ -61,7 +73,7 @@ class Main {
         if(selection.equals("Charmander")) {
             person1 = new Person(name,age, createdPokemon().get(1));
         }
-        if (selection.equals("Bulb")){
+        if (selection.equals("Bulbasaur")){
             person1 = new Person(name,age, createdPokemon().get(2));
         }
 

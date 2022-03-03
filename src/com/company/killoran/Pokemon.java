@@ -1,36 +1,45 @@
 package com.company.killoran;
 
-enum Type {FIRE, WATER, GRASS}
+import java.util.ArrayList;
 
+enum Type {FIRE, WATER, GRASS, BASIC}
 
 public class Pokemon  {
     private String name;
     private Type aType;
-    private int health = 100;
+    private int health;
 
-    private double fireResistance = 0;
-    private double waterResistance = 0;
-    private double grassResistance = 0;
 
-    public Pokemon(String name, Type aType) {
+    private double fireResistance = 1.00;
+    private double waterResistance = 1.00;
+    private double grassResistance = 1.00;
+
+    //damage delivered = damage * resistance
+
+    public Pokemon(String name, Type aType, int health) {
         this.name = name;
         this.aType = aType;
+        this.health = health;
+
+
 
         if(aType == Type.WATER){
-            fireResistance = -.5;
-            grassResistance = +.5;
+            fireResistance = .7;
+            grassResistance = 1.3;
         }
 
         if(aType == Type.FIRE){
-            grassResistance = +.5;
-            waterResistance = -.5;
+            grassResistance = 1.3;
+            waterResistance = .7;
         }
 
         if(aType == Type.GRASS){
-            waterResistance = +.5;
-            fireResistance = -.5;
+            waterResistance = 1.3;
+            fireResistance = .7;
         }
     }
+
+
 
     @Override
     public String toString() {
